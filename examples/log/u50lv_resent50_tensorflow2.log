@@ -1,0 +1,264 @@
+/home/demo/zebra/examples/models/resnet50/tensorflow2 not found, trying to download
++----------------------------+
+|      DOWNLOAD IMAGES       |
++----------------------------+
+
+Images have already been downloaded into datasets/imagenet
+
+***********************************************
+Running [1mtensorflow2[0m framework image classification with [1mresnet50[0m model.
+***********************************************
+Running testbench ...
+/home/demo/zebra/examples/batcher_py/tensorflow2_batcher.py --mode Gold --modelPath /home/demo/zebra/examples/models/resnet50/tensorflow2 --imgPath datasets/imagenet/ILSVRC2012_img_val --goldFile datasets/imagenet/ILSVRC_2012_val_GroundTruth_10p.txt --testList top1:top5 --demoPath . --imageShape 3 224 224 --preProcess (PanScan 224 224) RGB (StdNorm 0 255) --postProcess TOP_N --predictMode TOP_N_DEMO --predictFile predict.log --nbImages 200 --batchSize 20
+[ZEBRA] Log file: /home/demo/.mipsology/zebra/log/python3.20220830-003310.932.log
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] The command line is: "python3 /home/demo/zebra/examples/batcher_py/tensorflow2_batcher.py --mode Gold --modelPath /home/demo/zebra/examples/models/resnet50/tensorflow2 --imgPath datasets/imagenet/ILSVRC2012_img_val --goldFile datasets/imagenet/ILSVRC_2012_val_GroundTruth_10p.txt --testList top1:top5 --demoPath . --imageShape 3 224 224 --preProcess (PanScan 224 224) RGB (StdNorm 0 255) --postProcess TOP_N --predictMode TOP_N_DEMO --predictFile predict.log --nbImages 200 --batchSize 20".
+[ZEBRA] Converting Keras model to TensorFlow.
+[ZEBRA] Freezing TensorFlow model...
+[ZEBRA] Model frozen: 466 -> 465 operations
+[ZEBRA] Saving model into directory "/home/demo/zebra/examples/models.zebra/tensorflow-ec2975d-70261c5.info".
+[ZEBRA] Initializing TensorFlow preprocessing subgraph.
+[ZEBRA] Initializing TensorFlow processing subgraph.
+[ZEBRA] Initializing TensorFlow postprocessing subgraph.
+[ZEBRA] Converting TensorFlow model to ONNX.
+[ZEBRA] resnet50 will run with Iriz flow
+[ZEBRA] [1;33m[WARNING]:[0m 1 subgraphs are executed on the CPU
+[ZEBRA] Dumping graph execution report in /home/demo/zebra/examples/models.zebra/tensorflow-ec2975d-70261c5.info/graph_execution_report.json.
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   0:
+[ZEBRA] Running resnet50_subgraph#0 (inputs = [Input node input_1:0, 1 users], outputs = [Node resnet50/conv1/Conv2D__6:0, 0 users]) on CPU.
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     3.85, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA] Running resnet50_subgraph#1 (inputs = [Input node resnet50/conv1/Conv2D__6:0, 1 users], outputs = [Node Identity:0, 0 users]) on ZEBRA.
+[ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
+[ZEBRA] [1;33m[WARNING]:[0m License for board 0 will expire on 2022-09-29, 29 days remaining.
+[ZEBRA] [Workflow] command ZEBRA_ENABLE_PYWRAPPER=0 /usr/bin/python3 -u /home/demo/zebra/lib/python/workflow.py /home/demo/zebra/examples/models.zebra/workflow/main.toml --flow_dir /home/demo/zebra/examples/models.zebra/workflow/ --raise_errors
+[ZEBRA] [Workflow] [ZEBRA] Log file: /home/demo/.mipsology/zebra/log/python3.20220830-003348.1055.log
+[ZEBRA] [Workflow] [ZEBRA] [0;36mWorkflow progression ▮[0m
+[ZEBRA] [Workflow] [ZEBRA] [1;35mresnet50_subgraph#1 flow starting[0m
+[ZEBRA] [Workflow] [ZEBRA] [0;35mRunning : network_transform[0m
+[ZEBRA] [Workflow] [ZEBRA] [0;35mRunning : calibrate[0m
+[ZEBRA] [Workflow] [0mCalibrate on /home/demo/zebra/examples/models.zebra/workflow/calibration.toml[0m
+[ZEBRA] [Workflow] [ZEBRA] Log file: /home/demo/.mipsology/zebra/log/python3.20220830-003350.1108.log
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮   1 / 1 : 0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ····∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   1 / 58 : resnet50/conv1/Conv2D__6:0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮···∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   2 / 58 : resnet50/max_pooling2d/MaxPool__14:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮··∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   3 / 58 : resnet50/res2a_branch2a/Conv2D__18:0[0m
+[ZEBRA] [Workflow] /usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+[ZEBRA] [Workflow]   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   4 / 58 : resnet50/res2a_branch2b/Conv2D__26:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   5 / 58 : resnet50/res2a_branch2c/Conv2D__34:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘····∘····∘   6 / 58 : resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_neutral_pool[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘····∘····∘   7 / 58 : resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_concat[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘····∘····∘   8 / 58 : resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_merged_conv[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘····∘····∘   9 / 58 : resnet50/res2b_branch2b/Conv2D__58:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘····∘  10 / 58 : resnet50/res2b_branch2c/Conv2D__66:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘····∘  11 / 58 : resnet50/res2c_branch2a/Conv2D__74:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘····∘  12 / 58 : resnet50/res2c_branch2b/Conv2D__82:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘····∘  13 / 58 : resnet50/res2c_branch2c/Conv2D__90:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘····∘  14 / 58 : resnet50/res3a_branch2a/Conv2D__98:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘····∘  15 / 58 : resnet50/res3a_branch2b/Conv2D__106:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘  16 / 58 : resnet50/res3a_branch2c/Conv2D__114:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘  17 / 58 : resnet50/bn3a_branch2c/FusedBatchNormV3:0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘  18 / 58 : resnet50/res3b_branch2a/Conv2D__130:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘  19 / 58 : resnet50/res3b_branch2b/Conv2D__138:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘  20 / 58 : resnet50/res3b_branch2c/Conv2D__146:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘  21 / 58 : resnet50/res3c_branch2a/Conv2D__154:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘  22 / 58 : resnet50/res3c_branch2b/Conv2D__162:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘  23 / 58 : resnet50/res3c_branch2c/Conv2D__170:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘  24 / 58 : resnet50/res3d_branch2a/Conv2D__178:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘  25 / 58 : resnet50/res3d_branch2b/Conv2D__186:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘  26 / 58 : resnet50/res3d_branch2c/Conv2D__194:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘  27 / 58 : resnet50/res4a_branch2a/Conv2D__202:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘  28 / 58 : resnet50/res4a_branch2b/Conv2D__210:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘  29 / 58 : resnet50/res4a_branch2c/Conv2D__218:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘  30 / 58 : resnet50/bn4a_branch2c/FusedBatchNormV3:0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘  31 / 58 : resnet50/res4b_branch2a/Conv2D__234:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘  32 / 58 : resnet50/res4b_branch2b/Conv2D__242:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘  33 / 58 : resnet50/res4b_branch2c/Conv2D__250:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘  34 / 58 : resnet50/res4c_branch2a/Conv2D__258:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘  35 / 58 : resnet50/res4c_branch2b/Conv2D__266:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘  36 / 58 : resnet50/res4c_branch2c/Conv2D__274:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘  37 / 58 : resnet50/res4d_branch2a/Conv2D__282:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘  38 / 58 : resnet50/res4d_branch2b/Conv2D__290:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘  39 / 58 : resnet50/res4d_branch2c/Conv2D__298:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘  40 / 58 : resnet50/res4e_branch2a/Conv2D__306:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘  41 / 58 : resnet50/res4e_branch2b/Conv2D__314:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘  42 / 58 : resnet50/res4e_branch2c/Conv2D__322:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘  43 / 58 : resnet50/res4f_branch2a/Conv2D__330:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘  44 / 58 : resnet50/res4f_branch2b/Conv2D__338:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘  45 / 58 : resnet50/res4f_branch2c/Conv2D__346:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘  46 / 58 : resnet50/res5a_branch2a/Conv2D__354:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘  47 / 58 : resnet50/res5a_branch2b/Conv2D__362:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘  48 / 58 : resnet50/res5a_branch2c/Conv2D__370:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘  49 / 58 : resnet50/bn5a_branch2c/FusedBatchNormV3:0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘  50 / 58 : resnet50/res5b_branch2a/Conv2D__386:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘  51 / 58 : resnet50/res5b_branch2b/Conv2D__394:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘  52 / 58 : resnet50/res5b_branch2c/Conv2D__402:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘  53 / 58 : resnet50/res5c_branch2a/Conv2D__410:0_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘  54 / 58 : resnet50/res5c_branch2b/Conv2D__418:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘  55 / 58 : resnet50/res5c_branch2c/Conv2D__426:0_zebra_act[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘  56 / 58 : iriz3006_zebra_eltw[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘  57 / 58 : iriz3727[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯  58 / 58 : resnet50/fc1000/BiasAdd:0[0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ····∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   1 / 56 : ['resnet50/conv1/Conv2D__6:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮···∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   2 / 56 : ['resnet50/max_pooling2d/MaxPool__14:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮··∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   3 / 56 : ['resnet50/res2a_branch2a/Conv2D__18:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   4 / 56 : ['resnet50/res2a_branch2b/Conv2D__26:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘····∘····∘   5 / 56 : ['resnet50/res2a_branch2c/Conv2D__34:0_zebra_act', 'resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_concat', 'resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_neutral_pool'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘····∘····∘   6 / 56 : ['resnet50/res2b_branch2a/Conv2D__50:0_zebra_act_merged_conv'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘····∘····∘   7 / 56 : ['resnet50/res2b_branch2b/Conv2D__58:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘····∘····∘   8 / 56 : ['resnet50/res2b_branch2c/Conv2D__66:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘····∘   9 / 56 : ['resnet50/res2c_branch2a/Conv2D__74:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘····∘  10 / 56 : ['resnet50/res2c_branch2b/Conv2D__82:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘····∘  11 / 56 : ['resnet50/res2c_branch2c/Conv2D__90:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘····∘  12 / 56 : ['resnet50/res3a_branch2a/Conv2D__98:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘····∘  13 / 56 : ['resnet50/res3a_branch2b/Conv2D__106:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘····∘  14 / 56 : ['resnet50/res3a_branch2c/Conv2D__114:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘····∘  15 / 56 : ['resnet50/bn3a_branch2c/FusedBatchNormV3:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘····∘  16 / 56 : ['resnet50/res3b_branch2a/Conv2D__130:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘····∘  17 / 56 : ['resnet50/res3b_branch2b/Conv2D__138:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘  18 / 56 : ['resnet50/res3b_branch2c/Conv2D__146:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘····∘  19 / 56 : ['resnet50/res3c_branch2a/Conv2D__154:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘····∘  20 / 56 : ['resnet50/res3c_branch2b/Conv2D__162:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘····∘  21 / 56 : ['resnet50/res3c_branch2c/Conv2D__170:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘····∘  22 / 56 : ['resnet50/res3d_branch2a/Conv2D__178:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘····∘  23 / 56 : ['resnet50/res3d_branch2b/Conv2D__186:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘····∘  24 / 56 : ['resnet50/res3d_branch2c/Conv2D__194:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘····∘  25 / 56 : ['resnet50/res4a_branch2a/Conv2D__202:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘····∘  26 / 56 : ['resnet50/res4a_branch2b/Conv2D__210:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘····∘  27 / 56 : ['resnet50/res4a_branch2c/Conv2D__218:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘  28 / 56 : ['resnet50/bn4a_branch2c/FusedBatchNormV3:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘····∘  29 / 56 : ['resnet50/res4b_branch2a/Conv2D__234:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘····∘  30 / 56 : ['resnet50/res4b_branch2b/Conv2D__242:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘····∘  31 / 56 : ['resnet50/res4b_branch2c/Conv2D__250:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘····∘  32 / 56 : ['resnet50/res4c_branch2a/Conv2D__258:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘····∘  33 / 56 : ['resnet50/res4c_branch2b/Conv2D__266:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘····∘  34 / 56 : ['resnet50/res4c_branch2c/Conv2D__274:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘····∘  35 / 56 : ['resnet50/res4d_branch2a/Conv2D__282:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘····∘  36 / 56 : ['resnet50/res4d_branch2b/Conv2D__290:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘  37 / 56 : ['resnet50/res4d_branch2c/Conv2D__298:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘····∘  38 / 56 : ['resnet50/res4e_branch2a/Conv2D__306:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘····∘  39 / 56 : ['resnet50/res4e_branch2b/Conv2D__314:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘····∘  40 / 56 : ['resnet50/res4e_branch2c/Conv2D__322:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘····∘  41 / 56 : ['resnet50/res4f_branch2a/Conv2D__330:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘····∘  42 / 56 : ['resnet50/res4f_branch2b/Conv2D__338:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘····∘  43 / 56 : ['resnet50/res4f_branch2c/Conv2D__346:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘····∘  44 / 56 : ['resnet50/res5a_branch2a/Conv2D__354:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘····∘  45 / 56 : ['resnet50/res5a_branch2b/Conv2D__362:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘  46 / 56 : ['resnet50/res5a_branch2c/Conv2D__370:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘····∘  47 / 56 : ['resnet50/bn5a_branch2c/FusedBatchNormV3:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘····∘  48 / 56 : ['resnet50/res5b_branch2a/Conv2D__386:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘····∘  49 / 56 : ['resnet50/res5b_branch2b/Conv2D__394:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘····∘  50 / 56 : ['resnet50/res5b_branch2c/Conv2D__402:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯····∘  51 / 56 : ['resnet50/res5c_branch2a/Conv2D__410:0_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮···∘  52 / 56 : ['resnet50/res5c_branch2b/Conv2D__418:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮··∘  53 / 56 : ['resnet50/res5c_branch2c/Conv2D__426:0_zebra_act'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮·∘  54 / 56 : ['iriz3006_zebra_eltw'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮∘  55 / 56 : ['iriz3727'][0m
+[ZEBRA] [Workflow] [ZEBRA] [0m  ▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯▮▮▮▮▯  56 / 56 : ['resnet50/fc1000/BiasAdd:0'][0m
+[ZEBRA] [Workflow] [ZEBRA] [1;35mresnet50_subgraph#1 done, 0 to go[0m
+[ZEBRA] [Workflow] [ZEBRA] [1;35mEverything went fine :)[0m
+[0;33m[▉▍                            ] [0m  3% [0;33m[▉▉▉▉▉▉▍                       ] [0m 20% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍             ] [0m 55% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍           ] [0m 60% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍          ] [0m 65% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍        ] [0m 70% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍       ] [0m 75% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍     ] [0m 81% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍    ] [0m 86% 
+[ZEBRA] Download and Unquantization of layer  will use :
+[ZEBRA] 	 optimized algorithm
+[ZEBRA] 	 int8_t to float conversion
+[ZEBRA] 	 bias addition
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total 49728.92 | FPGA  19.10 | CPU sum 49709.81 | Pre-process 49697.38 | PCIe writes  1.02 | Post-process 11.40 | PCIe reads  0.01, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                      1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   1:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     5.65, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  24.77 | FPGA  18.96 | CPU sum  5.80 | Pre-process  2.26 | PCIe writes  2.91 | Post-process  0.42 | PCIe reads  0.20, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  30.42 | FPGA  18.96 | CPU sum  5.80 | Pre-process  2.26 | PCIe writes  2.91 | Post-process  0.42 | PCIe reads  0.20 | Framework  5.65, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   2:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     5.56, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  25.40 | FPGA  18.88 | CPU sum  6.52 | Pre-process  3.00 | PCIe writes  2.78 | Post-process  0.53 | PCIe reads  0.20, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  30.96 | FPGA  18.88 | CPU sum  6.52 | Pre-process  3.00 | PCIe writes  2.78 | Post-process  0.53 | PCIe reads  0.20 | Framework  5.55, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   3:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     3.95, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  25.45 | FPGA  18.92 | CPU sum  6.53 | Pre-process  2.94 | PCIe writes  2.97 | Post-process  0.38 | PCIe reads  0.22, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  29.40 | FPGA  18.92 | CPU sum  6.53 | Pre-process  2.94 | PCIe writes  2.97 | Post-process  0.38 | PCIe reads  0.22 | Framework  3.94, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   4:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     5.54, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  25.76 | FPGA  18.74 | CPU sum  7.02 | Pre-process  4.16 | PCIe writes  1.88 | Post-process  0.73 | PCIe reads  0.23, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  31.30 | FPGA  18.74 | CPU sum  7.02 | Pre-process  4.16 | PCIe writes  1.88 | Post-process  0.73 | PCIe reads  0.23 | Framework  5.54, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   5:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     4.91, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  36.80 | FPGA  18.89 | CPU sum 17.90 | Pre-process  2.48 | PCIe writes  2.75 | Post-process  0.44 | PCIe reads 12.22, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  41.71 | FPGA  18.89 | CPU sum 17.90 | Pre-process  2.48 | PCIe writes  2.75 | Post-process  0.44 | PCIe reads 12.22 | Framework  4.91, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   6:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     3.93, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  26.81 | FPGA  18.98 | CPU sum  7.83 | Pre-process  4.71 | PCIe writes  2.37 | Post-process  0.50 | PCIe reads  0.23, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  30.74 | FPGA  18.98 | CPU sum  7.83 | Pre-process  4.71 | PCIe writes  2.37 | Post-process  0.50 | PCIe reads  0.23 | Framework  3.92, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   7:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     4.08, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  24.35 | FPGA  18.74 | CPU sum  5.60 | Pre-process  2.00 | PCIe writes  2.75 | Post-process  0.63 | PCIe reads  0.22, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  28.42 | FPGA  18.74 | CPU sum  5.60 | Pre-process  2.00 | PCIe writes  2.75 | Post-process  0.63 | PCIe reads  0.22 | Framework  4.07, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   8:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     5.19, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  25.54 | FPGA  18.77 | CPU sum  6.76 | Pre-process  3.32 | PCIe writes  2.75 | Post-process  0.45 | PCIe reads  0.23, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  30.72 | FPGA  18.77 | CPU sum  6.76 | Pre-process  3.32 | PCIe writes  2.75 | Post-process  0.45 | PCIe reads  0.23 | Framework  5.18, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 20 samples per batch, batch number   9:
+[ZEBRA]   resnet50_subgraph#0 Framework: CPU     3.95, 1 input (20x224x224x3) processed into 1 output (20x3x224x224) 
+[ZEBRA]   resnet50_subgraph#1 ZEBRA:     Total  24.73 | FPGA  18.72 | CPU sum  6.01 | Pre-process  2.67 | PCIe writes  2.45 | Post-process  0.68 | PCIe reads  0.19, 1 input (20x3x224x224) processed into 1 output (20x1001) 
+[ZEBRA]   resnet50                     : Total  28.68 | FPGA  18.72 | CPU sum  6.01 | Pre-process  2.67 | PCIe writes  2.45 | Post-process  0.68 | PCIe reads  0.19 | Framework  3.95, 1 input (20x224x224x3) processed into 1 output (20x1001) 
+[0m[MIPSO][0m ---------- Load label file ----------
+[0m[MIPSO][0m ---------- Load the network ----------
+[0m[MIPSO][0m Gold instanciation...
+[0m[MIPSO][0m ---------- Load Images ----------
+[0m[MIPSO][0m 100.0% of images loaded
+[0m[MIPSO][0m Images loaded
+[0m[MIPSO][0m 10 batches of 20 images
+[0m[MIPSO][0m Predict mode
+[MIPSO] [resnet50 TEST top1] 88.5% passed.
+[MIPSO] [resnet50 TEST top5] 97.0% passed.
+[MIPSO] [resnet50 ALL TESTS] 88.5% passed.
+[ZEBRA] "resnet50" run summary:
+[ZEBRA] 	 using 0 core
+[ZEBRA] 	 10 batches of 20 samples (the first batch is not used to compute the detailed times)
+[ZEBRA] 	 1 input per batch (20x224x224x3) 
+[ZEBRA] 	 1 output per batch (20x1001) 
+[ZEBRA] 	 2 total subgraphs:
+[ZEBRA] 		 1 ZEBRA (FPGA) subgraph
+[ZEBRA] 		 1 Framework (CPU) subgraph
+[ZEBRA] 	 200 samples
+[ZEBRA] 	 from 08/30/2022 00:33:18 to 08/30/2022 00:34:37
+[ZEBRA] 	 detailed times in ms
++-----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                       | ms/batch  | ms/batch  | ms/batch  | ms/batch  | ms/batch  |     %     | ms/sample | sample/s  |
+|                       |    min    |    max    |   mean    | 90th-tile |  median   |  median   |  median   |  median   |
++-----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| resnet50_subgraph#0   |           |           |           |           |           |           |           |           |
+|   Framework (CPU)     |      3.92 |      5.65 |      4.75 |      5.65 |      4.91 |    100.00 |      0.24 |           |
++-----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| resnet50_subgraph#1   |           |           |           |           |           |           |           |           |
+|   ZEBRA               |     24.35 |     36.80 |     26.62 |     36.80 |     25.45 |    100.00 |      1.27 |           |
+|     FPGA              |     18.72 |     18.98 |     18.85 |     18.98 |     18.88 |     74.18 |      0.94 |           |
+|     CPU               |           |           |           |           |           |           |           |           |
+|       Pre-Process     |      2.00 |      4.71 |      3.06 |      4.71 |      2.94 |     11.55 |      0.14 |           |
+|       PCIe Writes     |      1.88 |      2.97 |      2.62 |      2.97 |      2.75 |     10.80 |      0.13 |           |
+|       Post-Process    |      0.38 |      0.73 |      0.53 |      0.73 |      0.50 |      2.00 |      0.02 |           |
+|       PCIe Reads      |      0.19 |     12.22 |      1.55 |     12.22 |      0.22 |      0.89 |      0.01 |           |
++=======================+===========+===========+===========+===========+===========+===========+===========+===========+
+| Whole graph           |           |           |           |           |           |           |           |           |
+| Total                 |     28.42 |     41.71 |     31.37 |     41.71 |     30.72 |    100.00 |      1.53 |       651 |
+|   ZEBRA (1)           |     24.35 |     36.80 |     26.62 |     36.80 |     25.45 |     82.85 |      1.27 |       786 |
+|     FPGA              |     18.72 |     18.98 |     18.85 |     18.98 |     18.88 |     61.45 |      0.94 |    1.06 K |
+|     CPU               |           |           |           |           |           |           |           |           |
+|       Pre-Process     |      2.00 |      4.71 |      3.06 |      4.71 |      2.94 |      9.57 |      0.14 |           |
+|       PCIe Writes     |      1.88 |      2.97 |      2.62 |      2.97 |      2.75 |      8.95 |      0.13 |           |
+|       Post-Process    |      0.38 |      0.73 |      0.53 |      0.73 |      0.50 |      1.65 |      0.02 |           |
+|       PCIe Reads      |      0.19 |     12.22 |      1.55 |     12.22 |      0.22 |      0.74 |      0.01 |           |
+|   Framework (CPU) (1) |      3.92 |      5.65 |      4.75 |      5.65 |      4.91 |     15.98 |      0.24 |           |
++-----------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+

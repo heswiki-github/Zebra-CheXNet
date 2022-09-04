@@ -1,0 +1,108 @@
++----------------------------+
+|      DOWNLOAD IMAGES       |
++----------------------------+
+
+Images have already been downloaded into datasets/imagenet
+
+***********************************************
+Running [1mpytorch[0m framework image classification with [1mresnet50[0m model.
+***********************************************
+Running testbench ...
+/home/demo/zebra/examples/batcher_py/pytorch_batcher.py --mode Gold --modelPath /home/demo/zebra/examples/models/resnet50/pytorch --imgPath datasets/imagenet/ILSVRC2012_img_val --goldFile datasets/imagenet/ILSVRC_2012_val_GroundTruth_10p.txt --testList top1:top5 --demoPath . --imageShape 3 224 224 --preProcess (PanScan256 224 224) RGB (StdNorm (123.675 116.28 103.53) (58.395 57.12 57.375)) --postProcess TOP_N --predictMode TOP_N_DEMO --predictFile predict.log --nbImages 240 --batchSize 24
+[ZEBRA] Log file: /home/demo/.mipsology/zebra/log/python3.20220830-002959.634.log
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] The command line is: "python3 /home/demo/zebra/examples/batcher_py/pytorch_batcher.py --mode Gold --modelPath /home/demo/zebra/examples/models/resnet50/pytorch --imgPath datasets/imagenet/ILSVRC2012_img_val --goldFile datasets/imagenet/ILSVRC_2012_val_GroundTruth_10p.txt --testList top1:top5 --demoPath . --imageShape 3 224 224 --preProcess (PanScan256 224 224) RGB (StdNorm (123.675 116.28 103.53) (58.395 57.12 57.375)) --postProcess TOP_N --predictMode TOP_N_DEMO --predictFile predict.log --nbImages 240 --batchSize 24".
+[ZEBRA] Converting PyTorch model to ONNX.
+[ZEBRA] Saving model into directory "/home/demo/zebra/examples/models.zebra/pytorch-1e9fc02-e3b0c44.info".
+[ZEBRA] resnet50 will run with Iriz flow
+[ZEBRA] Dumping graph execution report in /home/demo/zebra/examples/models.zebra/pytorch-1e9fc02-e3b0c44.info/graph_execution_report.json.
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   0:
+[ZEBRA] Running resnet50_subgraph#0 (inputs = [Input node input_1, 1 users], outputs = [Node 495, 0 users]) on ZEBRA.
+[ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
+[ZEBRA] [1;33m[WARNING]:[0m License for board 0 will expire on 2022-09-29, 29 days remaining.
+[0;33m[▉▍                            ] [0m  3% [0;33m[▉▉▉▉▉▉▍                       ] [0m 20% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍             ] [0m 55% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍           ] [0m 60% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍          ] [0m 65% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍        ] [0m 70% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍       ] [0m 75% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍     ] [0m 81% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▍    ] [0m 86% [0;33m[▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉] [0m100% 
+[ZEBRA] Download and Unquantization of layer  will use :
+[ZEBRA] 	 optimized algorithm
+[ZEBRA] 	 int8_t to float conversion
+[ZEBRA] 	 bias addition
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total 5058.56 | FPGA  25.01 | CPU sum 5033.55 | Pre-process 5021.92 | PCIe writes  1.22 | Post-process 10.39 | PCIe reads  0.01, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                      1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   1:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  31.03 | FPGA  24.63 | CPU sum  6.40 | Pre-process  2.27 | PCIe writes  3.21 | Post-process  0.62 | PCIe reads  0.27, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  31.03 | FPGA  24.63 | CPU sum  6.40 | Pre-process  2.27 | PCIe writes  3.21 | Post-process  0.62 | PCIe reads  0.27, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   2:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  40.86 | FPGA  24.84 | CPU sum 16.01 | Pre-process  1.68 | PCIe writes  2.20 | Post-process  0.38 | PCIe reads 11.73, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  40.86 | FPGA  24.84 | CPU sum 16.01 | Pre-process  1.68 | PCIe writes  2.20 | Post-process  0.38 | PCIe reads 11.73, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   3:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  29.85 | FPGA  24.65 | CPU sum  5.20 | Pre-process  1.71 | PCIe writes  2.38 | Post-process  0.80 | PCIe reads  0.30, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  29.85 | FPGA  24.65 | CPU sum  5.20 | Pre-process  1.71 | PCIe writes  2.38 | Post-process  0.80 | PCIe reads  0.30, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   4:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  31.04 | FPGA  24.78 | CPU sum  6.25 | Pre-process  2.27 | PCIe writes  3.27 | Post-process  0.38 | PCIe reads  0.31, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  31.04 | FPGA  24.78 | CPU sum  6.25 | Pre-process  2.27 | PCIe writes  3.27 | Post-process  0.38 | PCIe reads  0.31, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   5:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  40.60 | FPGA  25.09 | CPU sum 15.50 | Pre-process  2.33 | PCIe writes  3.39 | Post-process  0.49 | PCIe reads  9.27, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  40.60 | FPGA  25.09 | CPU sum 15.50 | Pre-process  2.33 | PCIe writes  3.39 | Post-process  0.49 | PCIe reads  9.27, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   6:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  32.91 | FPGA  24.51 | CPU sum  8.40 | Pre-process  2.31 | PCIe writes  3.44 | Post-process  0.64 | PCIe reads  1.99, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  32.91 | FPGA  24.51 | CPU sum  8.40 | Pre-process  2.31 | PCIe writes  3.44 | Post-process  0.64 | PCIe reads  1.99, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   7:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  40.62 | FPGA  24.82 | CPU sum 15.79 | Pre-process  1.52 | PCIe writes  2.27 | Post-process  0.29 | PCIe reads 11.70, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  40.62 | FPGA  24.82 | CPU sum 15.79 | Pre-process  1.52 | PCIe writes  2.27 | Post-process  0.29 | PCIe reads 11.70, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   8:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  31.01 | FPGA  24.67 | CPU sum  6.33 | Pre-process  2.07 | PCIe writes  3.22 | Post-process  0.74 | PCIe reads  0.29, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  31.01 | FPGA  24.67 | CPU sum  6.33 | Pre-process  2.07 | PCIe writes  3.22 | Post-process  0.74 | PCIe reads  0.29, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] 
+[ZEBRA] Statistics (in ms) for network "resnet50", 24 samples per batch, batch number   9:
+[ZEBRA]   resnet50_subgraph#0 ZEBRA:     Total  31.48 | FPGA  24.85 | CPU sum  6.62 | Pre-process  2.40 | PCIe writes  3.56 | Post-process  0.35 | PCIe reads  0.30, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA]   resnet50                     : Total  31.48 | FPGA  24.85 | CPU sum  6.62 | Pre-process  2.40 | PCIe writes  3.56 | Post-process  0.35 | PCIe reads  0.30, 1 input (24x3x224x224) processed into 1 output (24x1000) 
+[ZEBRA] "resnet50" run summary:
+[ZEBRA] 	 using 0 core
+[ZEBRA] 	 10 batches of 24 samples (the first batch is not used to compute the detailed times)
+[ZEBRA] 	 1 input per batch (24x3x224x224) 
+[ZEBRA] 	 1 output per batch (24x1000) 
+[ZEBRA] 	 1 total subgraph:
+[ZEBRA] 		 1 ZEBRA (FPGA) subgraph
+[ZEBRA] 		 0 Framework (CPU) subgraph
+[ZEBRA] 	 240 samples
+[ZEBRA] 	 from 08/30/2022 00:29:59 to 08/30/2022 00:30:13
+[ZEBRA] 	 detailed times in ms
++--------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                    | ms/batch  | ms/batch  | ms/batch  | ms/batch  | ms/batch  |     %     | ms/sample | sample/s  |
+|                    |    min    |    max    |   mean    | 90th-tile |  median   |  median   |  median   |  median   |
++--------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| Whole graph        |           |           |           |           |           |           |           |           |
+| Total              |     29.85 |     40.86 |     34.38 |     40.86 |     31.48 |    100.00 |      1.31 |       762 |
+|   ZEBRA (1)        |     29.85 |     40.86 |     34.38 |     40.86 |     31.48 |    100.00 |      1.31 |       762 |
+|     FPGA           |     24.51 |     25.09 |     24.76 |     25.09 |     24.78 |     78.73 |      1.03 |       968 |
+|     CPU            |           |           |           |           |           |           |           |           |
+|       Pre-Process  |      1.52 |      2.40 |      2.06 |      2.40 |      2.27 |      7.22 |      0.09 |           |
+|       PCIe Writes  |      2.20 |      3.56 |      2.99 |      3.56 |      3.22 |     10.23 |      0.13 |           |
+|       Post-Process |      0.29 |      0.80 |      0.52 |      0.80 |      0.49 |      1.58 |      0.02 |           |
+|       PCIe Reads   |      0.27 |     11.73 |      4.02 |     11.73 |      0.31 |      1.00 |      0.01 |           |
++--------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+
+[0m[MIPSO][0m ---------- Load label file ----------
+[0m[MIPSO][0m ---------- Load the network ----------
+[0m[MIPSO][0m Loading torch file...
+[0m[MIPSO][0m Gold instanciation...
+[0m[MIPSO][0m ---------- Load Images ----------
+[0m[MIPSO][0m 100.0% of images loaded
+[0m[MIPSO][0m Images loaded
+[0m[MIPSO][0m 10 batches of 24 images
+[0m[MIPSO][0m Predict mode
+get_base_directory() /home/demo/zebra/examples/models.zebra
+torchModel.__class__.__name__ ResNet
+[MIPSO] [resnet50 TEST top1] 88.3% passed.
+[MIPSO] [resnet50 TEST top5] 98.3% passed.
+[MIPSO] [resnet50 ALL TESTS] 88.3% passed.
