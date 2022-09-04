@@ -170,6 +170,7 @@ $ ZEBRA_DEBUG_NN3=true python3 model_custom.py
 #### Step 5: Example of log file
 ```
 demo@cx:~/zebra/CheXNet$ ./run.sh
+
 Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/demo/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
 100%|███████████████████████████████████████████████████████████████████████████████| 30.8M/30.8M [00:03<00:00, 8.67MB/s]
 => loading checkpoint
@@ -185,6 +186,14 @@ Running inference 1
 Len of in: 4 torch.Size([4, 10, 3, 224, 224])
 Len of input: 40 torch.Size([40, 3, 224, 224])
 ...
+Running inference 5607
+Len of in: 4 torch.Size([4, 10, 3, 224, 224])
+Len of input: 40 torch.Size([40, 3, 224, 224])
+Running inference 5608
+Len of in: 1 torch.Size([1, 10, 3, 224, 224])
+Len of input: 10 torch.Size([10, 3, 224, 224])
+INFO :  Total Images   = 224320
+INFO :  Execution Time = 8127.62
 
 The average AUROC is 0.559
 The AUROC of Atelectasis is 0.6138711490423786
