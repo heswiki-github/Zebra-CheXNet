@@ -32,7 +32,7 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 | :------------: | :---------: | :--------: | :-------: | 
 | Total Images                 | 224320 | 224320 | 224320 |
 | Execution Time (sec)         | 8401.5 | 365.6 | 8127.6 | 
-| Troughput (fps)              | 26.7   | 613.5 |  36.2  |
+| Troughput (fps)              | 26.7   | 613.5 |  27.5 |
 | Average AUROC                | 0.843  | 0.811 |  0.559  |
 | Atelectasis (肺不張)          | 0.8294 | 0.8026 | 0.6138 |
 | Cardiomegaly (心臟腫大)       | 0.9165 | 0.8901 | 0.5337 |
