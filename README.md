@@ -57,7 +57,8 @@ The average AUROC is 0.559
 `$zebra_config --add runSession.directory=quant_zebra` \
 `$zebra_config --add quantization.minimalBatchSize=2` \
 `cd zebra` \
-`python model.py` \
+`python model.py`
+
 
 ## Contributions
 
