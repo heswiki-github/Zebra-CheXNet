@@ -24,3 +24,36 @@ The AUROC of Fibrosis is 0.7409481605196289
 The AUROC of Pleural_Thickening is 0.5483650284364993
 The AUROC of Hernia is 0.41044765009750944
 
+
+demo@cx9:/nvme/zebra/V2022.2.5$ zebra_config --list-all
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] List all config files:
+[ZEBRA]
+[ZEBRA] [runSession]
+        enableTimeStatistics=true
+        directory=quant_zebra
+[debug]
+        enableSubBatch=False
+[quantization]
+        minimalBatchSize=100
+        mode=dynamic
+[runOptimization]
+        addOptimizers=PrecisionRecovery:RUN
+[ZEBRA] [runSession]
+        precision=INT8
+[ZEBRA] [runSession]
+        enableTimeStatistics=true
+        directory=quant_zebra
+[debug]
+        enableSubBatch=False
+[quantization]
+        minimalBatchSize=100
+        mode=dynamic
+[runOptimization]
+        addOptimizers=PrecisionRecovery:RUN
+[ZEBRA] [log]
+        enable=false
+
