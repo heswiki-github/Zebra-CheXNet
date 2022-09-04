@@ -49,7 +49,8 @@ We followed the training strategy described in the official paper, and a ten cro
 
 
 ## Zebra Implementaiton
-The average AUROC is 0.559
+
+The test report after running Zebra V2022.2.5 on Alveo U50LV, the average AUROC is 0.559
 
 ### Step 1: Check Hardware Installation
 
@@ -99,7 +100,7 @@ $ zebra_config --add debug.enableSubBatch=False
 $ zebra_config --add runSession.directory=quant_zebra 
 $ zebra_config --add quantization.minimalBatchSize=2 
 ```
-#### For performanc optimization
+#### For performance optimization
 ```
 zebra_config --add runOptimization.frequency=575
 zebra_config --add memoryTuning.algorithm=PMN
@@ -107,8 +108,8 @@ zebra_config --add memoryTuning.algorithm=PMN
 
 ### Setp 3: Launch Zebra Docker
 ```
-## zebra/run_docker.sh
-$ cd <zebra>/V2022.2.5
+## /zebra/run_docker.sh
+$ cd /zebra/V2022.2.5
 $ source ./settings.sh
 $ ./examples/docker/run.sh
 ```
