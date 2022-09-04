@@ -52,28 +52,32 @@ We followed the training strategy described in the official paper, and a ten cro
 The average AUROC is 0.559
 
 ### Zebra Settings
-`$zebra_config --add runSession.enableTimeStatistics=true` \
-`$zebra_config --add runOptimization.frequency=500` \
-`$zebra_config --add debug.enableSubBatch=False` \
-`$zebra_config --add runSession.directory=quant_zebra` \
-`$zebra_config --add quantization.minimalBatchSize=2` \
-`cd zebra` \
-`python model.py`
-
+```
+$ zebra_config --add runSession.enableTimeStatistics=true 
+$ zebra_config --add runOptimization.frequency=500 
+$ zebra_config --add debug.enableSubBatch=False 
+$ zebra_config --add runSession.directory=quant_zebra 
+$ zebra_config --add quantization.minimalBatchSize=2 
+```
+```
+cd zebra
+python model.py
+```
 ### Launch Zebra
 
 ```
-$ cd /zebra/V2022.2.5` 
-source ./settings.sh
-./examples/docker/run.sh
-./run_docker.sh
+## zebra/run_docker.sh
+$ cd /zebra/V2022.2.5
+$ source ./settings.sh
+$ ./examples/docker/run.sh
 ```
 
 
 #### Inside Zebra Docker
-`$ unset LD_PRELOAD` \
-`$ ZEBRA_DEBUG_NN3=true python3 model_custom.py`
-``
+```
+$ unset LD_PRELOAD 
+$ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
+```
 
 ## Contributions
 
