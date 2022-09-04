@@ -51,10 +51,29 @@ We followed the training strategy described in the official paper, and a ten cro
 ## Zebra Implementaiton
 The average AUROC is 0.559
 
-### Check Hardware Installation
+### Step 1: Check Hardware Installation
+
+#### lspci
 ```
-demo@cx9:/nvme/zebra/V2022.2.5$ source ./settings.sh
-demo@cx9:/nvme/zebra/V2022.2.5$ ** zebra_tools --checkCores **
+demo@cx:/zebra/V2022.2.5$ sudo lspci -v -d 10ee:
+01:00.0 Serial controller: Xilinx Corporation Device 8022 (prog-if 00 [8250])
+        Subsystem: Xilinx Corporation Device 0007
+        Flags: bus master, fast devsel, latency 0
+        Memory at fc000000 (32-bit, non-prefetchable) [size=4M]
+        Memory at fa000000 (32-bit, non-prefetchable) [size=32M]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [48] MSI: Enable- Count=1/1 Maskable- 64bit+
+        Capabilities: [70] Express Endpoint, MSI 00
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [1c0] #19
+        Capabilities: [350] Vendor Specific Information: ID=0001 Rev=1 Len=02c <?>
+        Kernel driver in use: zebra
+        Kernel modules: zebra
+```
+#### zebra_tools --checkCores
+```
+demo@cx:/zebra/V2022.2.5$ source ./settings.sh
+demo@cx:/zebra/V2022.2.5$ zebra_tools --checkCores 
 ```
 ```
 [ZEBRA] Log file: /home/demo/.mipsology/zebra/log/zebra_tools.20220904-182224.25379.log
@@ -72,7 +91,7 @@ demo@cx9:/nvme/zebra/V2022.2.5$ ** zebra_tools --checkCores **
 [ZEBRA] No HW assertion detected.
 ```
 
-### Zebra Settings
+### Setp 2:  Zebra Settings
 ```
 $ zebra_config --add runSession.enableTimeStatistics=true 
 $ zebra_config --add runOptimization.frequency=500 
@@ -80,30 +99,22 @@ $ zebra_config --add debug.enableSubBatch=False
 $ zebra_config --add runSession.directory=quant_zebra 
 $ zebra_config --add quantization.minimalBatchSize=2 
 ```
-
 #### For performanc optimization
 ```
 zebra_config --add runOptimization.frequency=575
 zebra_config --add memoryTuning.algorithm=PMN
 ```
 
-### Launch Zebra Docker
+### Setp 3: Launch Zebra Docker
 ```
 ## zebra/run_docker.sh
 $ cd <zebra>/V2022.2.5
 $ source ./settings.sh
 $ ./examples/docker/run.sh
 ```
-### Run application inside Zebra Docker
+### Setp 4: Run application inside Zebra Docker
 ```
 $ cd zebra
 $ unset LD_PRELOAD 
 $ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
 ```
-## Contributions
-
-This work was collaboratively conducted by Xinyu Weng, Nan Zhuang, Jingjing Tian and Yingcheng Liu.
-
-## Our Team
-
-All of us are students/interns of Machine Intelligence Lab, Institute of Computer Science & Technology, Peking University, directed by Prof. Yadong Mu (http://www.muyadong.com).
