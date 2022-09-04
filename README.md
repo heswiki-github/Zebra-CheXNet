@@ -61,14 +61,13 @@ The average AUROC is 0.559
 `python model.py`
 
 ### Launch Zebra
-`
+
+```
 $ cd /zebra/V2022.2.5` 
-
 source ./settings.sh
-
 ./examples/docker/run.sh
-`
-`./run_docker.sh `
+./run_docker.sh
+```
 
 
 #### Inside Zebra Docker
