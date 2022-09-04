@@ -170,9 +170,9 @@ $ unset LD_PRELOAD
 $ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
 ```
 
-#### Example of log file
+#### Step 5: Example of log file
 ```
-demo@cx9:~/zebra/CheXNet$ ./run.sh
+demo@cx:~/zebra/CheXNet$ ./run.sh
 Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/demo/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
 100%|███████████████████████████████████████████████████████████████████████████████| 30.8M/30.8M [00:03<00:00, 8.67MB/s]
 => loading checkpoint
@@ -187,4 +187,23 @@ Len of input: 40 torch.Size([40, 3, 224, 224])
 Running inference 1
 Len of in: 4 torch.Size([4, 10, 3, 224, 224])
 Len of input: 40 torch.Size([40, 3, 224, 224])
+...
+
+The average AUROC is 0.559
+The AUROC of Atelectasis is 0.6138711490423786
+The AUROC of Cardiomegaly is 0.533704529002345
+The AUROC of Effusion is 0.8328125750171148
+The AUROC of Infiltration is 0.3729686595322937
+The AUROC of Mass is 0.3908945257304344
+The AUROC of Nodule is 0.6040564932757174
+The AUROC of Pneumonia is 0.5178404170255904
+The AUROC of Pneumothorax is 0.6200046283676344
+The AUROC of Consolidation is 0.6152587184878242
+The AUROC of Edema is 0.6514502004561119
+The AUROC of Emphysema is 0.3718691181430833
+The AUROC of Fibrosis is 0.7409481605196289
+The AUROC of Pleural_Thickening is 0.5483650284364993
+The AUROC of Hernia is 0.41044765009750944
+
+
 ```
