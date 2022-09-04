@@ -51,6 +51,27 @@ We followed the training strategy described in the official paper, and a ten cro
 ## Zebra Implementaiton
 The average AUROC is 0.559
 
+### Check Hardware Installation
+```
+demo@cx9:/nvme/zebra/V2022.2.5$ source ./settings.sh
+demo@cx9:/nvme/zebra/V2022.2.5$ ** zebra_tools --checkCores **
+```
+```
+[ZEBRA] Log file: /home/demo/.mipsology/zebra/log/zebra_tools.20220904-182224.25379.log
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] The command line is: "zebra_tools --checkCores".
+[ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
+[ZEBRA] Check if board 0 system 0 core 0 can be used ... OK.
+[ZEBRA] Check if board 0 system 1 core 0 can be used ... OK.
+[ZEBRA] Check if board 0 system 2 core 0 can be used ... OK.
+[ZEBRA] Check if board 0 system 3 core 0 can be used ... OK.
+[ZEBRA]
+[ZEBRA] No HW assertion detected.
+```
+
 ### Zebra Settings
 ```
 $ zebra_config --add runSession.enableTimeStatistics=true 
@@ -59,6 +80,13 @@ $ zebra_config --add debug.enableSubBatch=False
 $ zebra_config --add runSession.directory=quant_zebra 
 $ zebra_config --add quantization.minimalBatchSize=2 
 ```
+
+#### For performanc optimization
+```
+zebra_config --add runOptimization.frequency=575
+zebra_config --add memoryTuning.algorithm=PMN
+```
+
 ### Launch Zebra Docker
 ```
 ## zebra/run_docker.sh
