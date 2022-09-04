@@ -4,7 +4,6 @@ Reference: https://github.com/arnoweng/CheXNet
 
 # CheXNet for Classification and Localization of Thoracic Diseases
 
-
 This is a Python3 (Pytorch) reimplementation of [CheXNet](https://stanfordmlgroup.github.io/projects/chexnet/). The model takes a chest X-ray image as input and outputs the probability of each thoracic disease along with a likelihood map of pathologies.
 
 
@@ -51,15 +50,15 @@ We followed the training strategy described in the official paper, and a ten cro
 
 ## Zebra Implementaiton
 The average AUROC is 0.559
-`
-$zebra_config --add runSession.enableTimeStatistics=true
-$zebra_config --add runOptimization.frequency=500
-$zebra_config --add debug.enableSubBatch=False
-$zebra_config --add runSession.directory=quant_zebra
-$zebra_config --add quantization.minimalBatchSize=2
-`
+
+`$zebra_config --add runSession.enableTimeStatistics=true` 
+`$zebra_config --add runOptimization.frequency=500`
+`$zebra_config --add debug.enableSubBatch=False`
+`$zebra_config --add runSession.directory=quant_zebra`
+`$zebra_config --add quantization.minimalBatchSize=2`
 
 `cd zebra`
+
 `python model.py`
 
 ## Contributions
