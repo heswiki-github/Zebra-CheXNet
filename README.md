@@ -32,25 +32,26 @@ We followed the training strategy described in the official paper, and a ten cro
 
 |     Pathology      | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | Our Implemented CheXNet | Our Improved Model | Zebra Implementaiton |
 | :----------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :---------------------: | :----------------: | :----------------: |
-|    Atelectasis     |                  0.716                   |                  0.772                   |                  0.8094                  |         0.8294          |       0.8311       | 0.6138711490423786 |
-|    Cardiomegaly    |                  0.807                   |                  0.904                   |                  0.9248                  |         0.9165          |       0.9220       | 0.533704529002345 |
-|      Effusion      |                  0.784                   |                  0.859                   |                  0.8638                  |         0.8870          |       0.8891       | 0.8328125750171148 |
-|    Infiltration    |                  0.609                   |                  0.695                   |                  0.7345                  |         0.7143          |       0.7146       | 0.3729686595322937 |
-|        Mass        |                  0.706                   |                  0.792                   |                  0.8676                  |         0.8597          |       0.8627       | 0.3908945257304344 |
-|       Nodule       |                  0.671                   |                  0.717                   |                  0.7802                  |         0.7873          |       0.7883       | 0.6040564932757174 |
-|     Pneumonia      |                  0.633                   |                  0.713                   |                  0.7680                  |         0.7745          |       0.7820       | 0.5178404170255904 |
-|    Pneumothorax    |                  0.806                   |                  0.841                   |                  0.8887                  |         0.8726          |       0.8844       | 0.6200046283676344 |
-|   Consolidation    |                  0.708                   |                  0.788                   |                  0.7901                  |         0.8142          |       0.8148       | 0.6152587184878242 |
-|       Edema        |                  0.835                   |                  0.882                   |                  0.8878                  |         0.8932          |       0.8992       | 0.6514502004561119 |
-|     Emphysema      |                  0.815                   |                  0.829                   |                  0.9371                  |         0.9254          |       0.9343       | 0.3718691181430833 |
-|      Fibrosis      |                  0.769                   |                  0.767                   |                  0.8047                  |         0.8304          |       0.8385       | 0.7409481605196289 |
-| Pleural Thickening |                  0.708                   |                  0.765                   |                  0.8062                  |         0.7831          |       0.7914       | 0.5483650284364993 |
-|       Hernia       |                  0.767                   |                  0.914                   |                  0.9164                  |         0.9104          |       0.9206       | 0.41044765009750944 |
+|    Atelectasis     |                  0.716                   |                  0.772                   |                  0.8094                  |         0.8294          |       0.8311       | 0.6138 |
+|    Cardiomegaly    |                  0.807                   |                  0.904                   |                  0.9248                  |         0.9165          |       0.9220       | 0.5337 |
+|      Effusion      |                  0.784                   |                  0.859                   |                  0.8638                  |         0.8870          |       0.8891       | 0.8328 |
+|    Infiltration    |                  0.609                   |                  0.695                   |                  0.7345                  |         0.7143          |       0.7146       | 0.3729 |
+|        Mass        |                  0.706                   |                  0.792                   |                  0.8676                  |         0.8597          |       0.8627       | 0.3908 |
+|       Nodule       |                  0.671                   |                  0.717                   |                  0.7802                  |         0.7873          |       0.7883       | 0.6040 |
+|     Pneumonia      |                  0.633                   |                  0.713                   |                  0.7680                  |         0.7745          |       0.7820       | 0.5178 |
+|    Pneumothorax    |                  0.806                   |                  0.841                   |                  0.8887                  |         0.8726          |       0.8844       | 0.6200 |
+|   Consolidation    |                  0.708                   |                  0.788                   |                  0.7901                  |         0.8142          |       0.8148       | 0.6152 |
+|       Edema        |                  0.835                   |                  0.882                   |                  0.8878                  |         0.8932          |       0.8992       | 0.6514 |
+|     Emphysema      |                  0.815                   |                  0.829                   |                  0.9371                  |         0.9254          |       0.9343       | 0.3718 |
+|      Fibrosis      |                  0.769                   |                  0.767                   |                  0.8047                  |         0.8304          |       0.8385       | 0.7409 |
+| Pleural Thickening |                  0.708                   |                  0.765                   |                  0.8062                  |         0.7831          |       0.7914       | 0.5483 |
+|       Hernia       |                  0.767                   |                  0.914                   |                  0.9164                  |         0.9104          |       0.9206       | 0.41044 |
 
 
 ## Zebra Implementaiton
 The average AUROC is 0.559
 
+### Zebra Settings
 `$zebra_config --add runSession.enableTimeStatistics=true` \
 `$zebra_config --add runOptimization.frequency=500` \
 `$zebra_config --add debug.enableSubBatch=False` \
@@ -60,10 +61,9 @@ The average AUROC is 0.559
 `python model.py`
 
 ### Launch Zebra
-
-` $ unset LD_PRELOAD \
-$ ZEBRA_DEBUG_NN3=true python3 model_custom.py
-`
+`$ unset LD_PRELOAD` \
+`$ ZEBRA_DEBUG_NN3=true python3 model_custom.py`
+``
 
 ## Contributions
 
