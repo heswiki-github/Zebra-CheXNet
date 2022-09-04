@@ -137,10 +137,8 @@ demo@cx9:/nvme/zebra/V2022.2.5$ zebra_config --list-all
         mode=dynamic
 [runOptimization]
         addOptimizers=PrecisionRecovery:RUN
-
 [ZEBRA] [runSession]
         precision=INT8
-
 [ZEBRA] [runSession]
         enableTimeStatistics=true
         directory=quant_zebra
@@ -151,7 +149,6 @@ demo@cx9:/nvme/zebra/V2022.2.5$ zebra_config --list-all
         mode=dynamic
 [runOptimization]
         addOptimizers=PrecisionRecovery:RUN
-
 [ZEBRA] [log]
         enable=false
 ```
