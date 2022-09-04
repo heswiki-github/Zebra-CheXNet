@@ -59,6 +59,11 @@ The average AUROC is 0.559
 `cd zebra` \
 `python model.py`
 
+### Launch Zebra
+
+` $ unset LD_PRELOAD \
+$ ZEBRA_DEBUG_NN3=true python3 model_custom.py
+`
 
 ## Contributions
 
