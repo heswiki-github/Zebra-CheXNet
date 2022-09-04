@@ -162,15 +162,14 @@ $ ./examples/docker/run.sh
 ```
 ### Setp 4: Run application inside Zebra Docker
 ```
-$ cd zebra
+## /zebra/CheXNet/run.sh
+$ cd zebra/CheXNet
 $ unset LD_PRELOAD 
 $ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
 ```
 
 #### Step 5: Example of log file
 ```
-demo@cx:~/zebra/CheXNet$ ./run.sh
-
 Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/demo/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
 100%|███████████████████████████████████████████████████████████████████████████████| 30.8M/30.8M [00:03<00:00, 8.67MB/s]
 => loading checkpoint
