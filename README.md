@@ -4,7 +4,7 @@ Reference: https://github.com/arnoweng/CheXNet
 
 # CheXNet for Classification and Localization of Thoracic Diseases
 
-This is a Python3 (Pytorch) reimplementation of [CheXNet](https://stanfordmlgroup.github.io/projects/chexnet/). The model takes a chest X-ray image as input and outputs the probability of each thoracic disease along with a likelihood map of pathologies.
+This is a Python3 (Pytorch) reimplementation of [CheXNet](https://stanfordmlgroup.github.io/projects/chexnet/). The model takes a chest X-ray image as input and outputs the probability of each thoracic disease (胸部疾病) along with a likelihood map of pathologies.
 
 
 ## Dataset
@@ -30,22 +30,22 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 
 We followed the training strategy described in the official paper, and a ten crop method is adopted both in validation and test. Compared with the original CheXNet, the per-class AUROC of our reproduced model is almost the same. We have also proposed a slightly-improved model which achieves a mean AUROC of 0.847 (v.s. 0.841 of the original CheXNet).
 
-|     Pathology      | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | Our Implemented CheXNet | Our Improved Model | Zebra Implementaiton |
+|     Pathology (病理)      | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | Our Implemented CheXNet | Our Improved Model | Zebra Implementaiton |
 | :----------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :---------------------: | :----------------: | :----------------: |
-|    Atelectasis     |                  0.716                   |                  0.772                   |                  0.8094                  |         0.8294          |       0.8311       | 0.6138 |
-|    Cardiomegaly    |                  0.807                   |                  0.904                   |                  0.9248                  |         0.9165          |       0.9220       | 0.5337 |
-|      Effusion      |                  0.784                   |                  0.859                   |                  0.8638                  |         0.8870          |       0.8891       | 0.8328 |
-|    Infiltration    |                  0.609                   |                  0.695                   |                  0.7345                  |         0.7143          |       0.7146       | 0.3729 |
-|        Mass        |                  0.706                   |                  0.792                   |                  0.8676                  |         0.8597          |       0.8627       | 0.3908 |
-|       Nodule       |                  0.671                   |                  0.717                   |                  0.7802                  |         0.7873          |       0.7883       | 0.6040 |
-|     Pneumonia      |                  0.633                   |                  0.713                   |                  0.7680                  |         0.7745          |       0.7820       | 0.5178 |
-|    Pneumothorax    |                  0.806                   |                  0.841                   |                  0.8887                  |         0.8726          |       0.8844       | 0.6200 |
-|   Consolidation    |                  0.708                   |                  0.788                   |                  0.7901                  |         0.8142          |       0.8148       | 0.6152 |
-|       Edema        |                  0.835                   |                  0.882                   |                  0.8878                  |         0.8932          |       0.8992       | 0.6514 |
-|     Emphysema      |                  0.815                   |                  0.829                   |                  0.9371                  |         0.9254          |       0.9343       | 0.3718 |
-|      Fibrosis      |                  0.769                   |                  0.767                   |                  0.8047                  |         0.8304          |       0.8385       | 0.7409 |
-| Pleural Thickening |                  0.708                   |                  0.765                   |                  0.8062                  |         0.7831          |       0.7914       | 0.5483 |
-|       Hernia       |                  0.767                   |                  0.914                   |                  0.9164                  |         0.9104          |       0.9206       | 0.41044 |
+| Atelectasis (肺不張)          | 0.716 | 0.772 | 0.8094 | 0.8294 | 0.8311 | 0.6138 |
+| Cardiomegaly (心臟腫大)       | 0.807 | 0.904 | 0.9248 | 0.9165 | 0.9220 | 0.5337 |
+| Effusion (積液)               | 0.784 | 0.859 | 0.8638 | 0.8870 | 0.8891 | 0.8328 |
+| Infiltration (浸潤)           | 0.609 | 0.695 | 0.7345 | 0.7143 | 0.7146 | 0.3729 |
+| Mass (大量的)                 | 0.706 | 0.792 | 0.8676 | 0.8597 | 0.8627 | 0.3908 |
+| Nodule (結核)                 | 0.671 | 0.717 | 0.7802 | 0.7873 | 0.7883 | 0.6040 |
+| Pneumonia (肺炎)              | 0.633 | 0.713 | 0.7680 | 0.7745 | 0.7820 | 0.5178 |
+| Pneumothorax (氣胸)           | 0.806 | 0.841 | 0.8887 | 0.8726 | 0.8844 | 0.6200 |
+| Consolidation (合併)          | 0.708 | 0.788 | 0.7901 |  0.8142| 0.8148 | 0.6152 |
+| Edema (浮腫)                  | 0.835 | 0.882 | 0.8878 | 0.8932 | 0.8992 | 0.6514 |
+| Emphysema (氣腫)              | 0.815 | 0.829 | 0.9371 | 0.9254 | 0.9343 | 0.3718 |
+| Fibrosis (纖維化)             | 0.769 | 0.767 | 0.8047 | 0.8304 | 0.8385 | 0.7409 |
+| Pleural Thickening (胸膜增厚) | 0.708 | 0.765 | 0.8062 | 0.7831 | 0.7914 | 0.5483 |
+| Hernia (疝)                  | 0.767 | 0.914 | 0.9164 | 0.9104 | 0.9206 | 0.41044 |
 
 
 ## Zebra Implementaiton
