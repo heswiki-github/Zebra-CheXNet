@@ -22,7 +22,7 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 
 2. Download images of ChestX-ray14 from this [released page](https://nihcc.app.box.com/v/ChestXray-NIHCC) and decompress them to the directory [images](./ChestX-ray14/images).
 
-3. Specify one or multiple GPUs and run
+3. Specify FPGA or GPUs for hardware acceleration and run
 
    `python model.py`
 
@@ -30,7 +30,7 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 
 We followed the training strategy described in the official paper, and a ten crop method is adopted both in validation and test. Compared with the original CheXNet, the per-class AUROC of our reproduced model is almost the same. We have also proposed a slightly-improved model which achieves a mean AUROC of 0.847 (v.s. 0.841 of the original CheXNet).
 
-|     Pathology (病理)      | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | Our Implemented CheXNet | Our Improved Model | Zebra Implementaiton |
+| Pathology (病理) | [Wang et al.](https://arxiv.org/abs/1705.02315) | [Yao et al.](https://arxiv.org/abs/1710.10501) | [CheXNet](https://arxiv.org/abs/1711.05225) | [Yao et al. Implemented CheXNet](http://www.muyadong.com) | [Yao et al. Improved Model](http://www.muyadong.com) | Zebra Implementaiton |
 | :----------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :---------------------: | :----------------: | :----------------: |
 | Atelectasis (肺不張)          | 0.716 | 0.772 | 0.8094 | 0.8294 | 0.8311 | 0.6138 |
 | Cardiomegaly (心臟腫大)       | 0.807 | 0.904 | 0.9248 | 0.9165 | 0.9220 | 0.5337 |
@@ -45,12 +45,16 @@ We followed the training strategy described in the official paper, and a ten cro
 | Emphysema (氣腫)              | 0.815 | 0.829 | 0.9371 | 0.9254 | 0.9343 | 0.3718 |
 | Fibrosis (纖維化)             | 0.769 | 0.767 | 0.8047 | 0.8304 | 0.8385 | 0.7409 |
 | Pleural Thickening (胸膜增厚) | 0.708 | 0.765 | 0.8062 | 0.7831 | 0.7914 | 0.5483 |
-| Hernia (疝)                  | 0.767 | 0.914 | 0.9164 | 0.9104 | 0.9206 | 0.41044 |
+| Hernia (疝)                  | 0.767 | 0.914 | 0.9164 | 0.9104 | 0.9206 | 0.4104 |
 
+####
+Area Under the Receiver Operating Characteristic (AUROC) is a performance metric that you can use to evaluate classification models. 
+
+AUROC tells you about the model’s ability to discriminate between cases (positive examples) and non-cases (negative examples.) An AUROC of 0.8 means that the model has good discriminatory ability: 80% of the time, the model will correctly assign a higher absolute risk to a randomly selected patient with an event than to a randomly selected patient without an event. 
 
 ## Zebra Implementaiton
 
-The test report after running Zebra V2022.2.5 on Alveo U50LV, the average AUROC is 0.559
+The test report after running the applciaiton in Zebra V2022.2.5 release and Alveo U50LV, the average AUROC is 0.559
 
 ### Step 1: Check Hardware Installation
 
