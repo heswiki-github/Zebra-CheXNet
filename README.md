@@ -29,7 +29,7 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 ## Comparsion
 
 
-| Pathology (病理) |    CPU    | ZEBRA U250 | U50LV Config 0| U50LV Config 1|
+| Pathology (病理) | CPU (FP32) | ZEBRA U250 | U50LV Config 0| U50LV Config 1|
 | :------------:   | :---------: | :--------: | :-------: | :-------: | 
 |  Zebra Release |       NA     | V2021.3.3  | V2022.2.5 | V2022.2.5 |
 | Total Images                 | 224320 | 224320 | 224320 | 224320 |
