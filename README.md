@@ -64,28 +64,28 @@ The average AUROC is 0.559
 `$ cd /zebra/V2022.2.5` \
 `./run_docker.sh `
 
-[ZEBRA] ======================
-[ZEBRA] MIPSOLOGY SAS (c) 2022
-[ZEBRA] Zebra V2022.2.5
-[ZEBRA] ======================
-[ZEBRA] ======================
-[ZEBRA] MIPSOLOGY SAS (c) 2022
-[ZEBRA] Zebra V2022.2.5
-[ZEBRA] ======================
-[ZEBRA] The command line is: "zebra_tools --config".
-[ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
-[ZEBRA]
-[ZEBRA] board name           :  XIL_AU50_LV
-[ZEBRA] core voltage         :  721 mV
-[ZEBRA] boards               :  1
-[ZEBRA] systems              :  4
-[ZEBRA] cores                :  1
-[ZEBRA] nces                 :  6
-[ZEBRA] neuron type          :  INT8
-[ZEBRA] nominal frequency    :  416
-[ZEBRA] run frequency        :  416
-[ZEBRA] enabled cores        :  1,1,1,1
-[ZEBRA] split core           :  1
+   [ZEBRA] ======================
+   [ZEBRA] MIPSOLOGY SAS (c) 2022
+   [ZEBRA] Zebra V2022.2.5
+   [ZEBRA] ======================
+   [ZEBRA] ======================
+   [ZEBRA] MIPSOLOGY SAS (c) 2022
+   [ZEBRA] Zebra V2022.2.5
+   [ZEBRA] ======================
+   [ZEBRA] The command line is: "zebra_tools --config".
+   [ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
+   [ZEBRA]
+   [ZEBRA] board name           :  XIL_AU50_LV
+   [ZEBRA] core voltage         :  721 mV
+   [ZEBRA] boards               :  1
+   [ZEBRA] systems              :  4
+   [ZEBRA] cores                :  1
+   [ZEBRA] nces                 :  6
+   [ZEBRA] neuron type          :  INT8
+   [ZEBRA] nominal frequency    :  416
+   [ZEBRA] run frequency        :  416
+   [ZEBRA] enabled cores        :  1,1,1,1
+   [ZEBRA] split core           :  1 
 
 #### Inside Zebra Docker
 `$ unset LD_PRELOAD` \
