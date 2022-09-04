@@ -29,7 +29,7 @@ The [ChestX-ray14 dataset](http://openaccess.thecvf.com/content_cvpr_2017/papers
 ## Comparsion
 
 | Pathology (病理) | [CheXNet](https://arxiv.org/abs/1711.05225) | [Implemented Model](https://github.com/arnoweng/CheXNet) | [Improved Model](https://github.com/arnoweng/CheXNet) | Zebra Implementaiton |
-| :--------------------------------------: | :---------------------: | :----------------: | :----------------: |
+| :--------------------------------------: | :---------------------: | :----------------: | :----------------: | :----------------: |
 | Atelectasis (肺不張)          | 0.8094 | 0.8294 | 0.8311 | 0.6138 |
 | Cardiomegaly (心臟腫大)       | 0.9248 | 0.9165 | 0.9220 | 0.5337 |
 | Effusion (積液)               | 0.8638 | 0.8870 | 0.8891 | 0.8328 |
