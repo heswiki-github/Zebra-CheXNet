@@ -59,12 +59,8 @@ $ zebra_config --add debug.enableSubBatch=False
 $ zebra_config --add runSession.directory=quant_zebra 
 $ zebra_config --add quantization.minimalBatchSize=2 
 ```
-```
-cd zebra
-python model.py
-```
-### Launch Zebra
-
+ 
+### Launch Zebra Docker
 ```
 ## zebra/run_docker.sh
 $ cd /zebra/V2022.2.5
@@ -72,9 +68,9 @@ $ source ./settings.sh
 $ ./examples/docker/run.sh
 ```
 
-
-#### Inside Zebra Docker
+### Run application inside Zebra Docker
 ```
+$ cd zebra
 $ unset LD_PRELOAD 
 $ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
 ```
