@@ -141,6 +141,37 @@ demo@cx:/zebra/V2022.2.5$ zebra_tools --checkCores
 [ZEBRA] No HW assertion detected.
 ```
 
+```
+Unknown option tensorflow
+Unknown option INT8
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] The command line is: "zebra_tools --config".
+[ZEBRA] Detect XIL_AU50 board 0 on PCIe slot 0000:01:00.
+[ZEBRA]
+[ZEBRA] board name           :  XIL_AU50_LV
+[ZEBRA] core voltage         :  721 mV
+[ZEBRA] boards               :  1
+[ZEBRA] systems              :  4
+[ZEBRA] cores                :  1
+[ZEBRA] nces                 :  6
+[ZEBRA] neuron type          :  INT8
+[ZEBRA] nominal frequency    :  416
+[ZEBRA] run frequency        :  416
+[ZEBRA] enabled cores        :  1,1,1,1
+[ZEBRA] split core           :  1
+[ZEBRA] fpga family          :  USCALE_PLUS
+[ZEBRA]
+OK: communication with the board successful
+
+```
+
 ### Setp 2:  Zebra Settings
 ```
 $ zebra_config --add runSession.enableTimeStatistics=true 
