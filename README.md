@@ -102,12 +102,58 @@ $ zebra_config --add runSession.enableTimeStatistics=true
 $ zebra_config --add runOptimization.frequency=500 
 $ zebra_config --add debug.enableSubBatch=False 
 $ zebra_config --add runSession.directory=quant_zebra 
-$ zebra_config --add quantization.minimalBatchSize=2 
+$ zebra_config --add quantization.minimalBatchSize=100 
 ```
+
+```
+$ zebra_config --add quantization.mode=dynamic (default=constrainedCalibrationV1.5)
+$ zebra_config --add quantization.forceSatCheckOnLastLayer=false (default=true)
+$ zebra_config --add quantization.algorithmVersion=1.0 (default=3.1)
+$ zebra_config --add quantization.ignoreNegativeValueOnLastLayer=false (default=true)
+$ zebra_config --add runOptimization.addOptimizers=PrecisionRecovery:RUN
+```
+
 #### For performance optimization
 ```
 zebra_config --add runOptimization.frequency=575
 zebra_config --add memoryTuning.algorithm=PMN
+```
+#### zebra.ini
+```
+demo@cx9:/nvme/zebra/V2022.2.5$ zebra_config --list-all
+[ZEBRA] ======================
+[ZEBRA] MIPSOLOGY SAS (c) 2022
+[ZEBRA] Zebra V2022.2.5
+[ZEBRA] ======================
+[ZEBRA] List all config files:
+[ZEBRA]
+[ZEBRA] [runSession]
+        enableTimeStatistics=true
+        directory=quant_zebra
+[debug]
+        enableSubBatch=False
+[quantization]
+        minimalBatchSize=100
+        mode=dynamic
+[runOptimization]
+        addOptimizers=PrecisionRecovery:RUN
+
+[ZEBRA] [runSession]
+        precision=INT8
+
+[ZEBRA] [runSession]
+        enableTimeStatistics=true
+        directory=quant_zebra
+[debug]
+        enableSubBatch=False
+[quantization]
+        minimalBatchSize=100
+        mode=dynamic
+[runOptimization]
+        addOptimizers=PrecisionRecovery:RUN
+
+[ZEBRA] [log]
+        enable=false
 ```
 
 ### Setp 3: Launch Zebra Docker
@@ -122,4 +168,23 @@ $ ./examples/docker/run.sh
 $ cd zebra
 $ unset LD_PRELOAD 
 $ ZEBRA_DEBUG_NN3=true python3 model_custom.py 
+```
+
+#### Example of log file
+```
+demo@cx9:~/zebra/CheXNet$ ./run.sh
+Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /home/demo/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
+100%|███████████████████████████████████████████████████████████████████████████████| 30.8M/30.8M [00:03<00:00, 8.67MB/s]
+=> loading checkpoint
+=> loaded checkpoint
+./model_custom.py:113: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  input_var = torch.autograd.Variable(inp.view(-1, c, h, w), volatile=True)
+Running inference 0
+Len of in: 4 torch.Size([4, 10, 3, 224, 224])
+Len of input: 40 torch.Size([40, 3, 224, 224])
+/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+Running inference 1
+Len of in: 4 torch.Size([4, 10, 3, 224, 224])
+Len of input: 40 torch.Size([40, 3, 224, 224])
 ```
